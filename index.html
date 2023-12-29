@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/3f0a6b5178.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="music-player">
+            <nav>
+                <div class="circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="16" width="10" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+
+                </div>
+
+                <div class="circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>
+
+
+                </div>
+            </nav>
+
+         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTExUBRl5WRcNW5vF6oXMb4WCqsQrbfyxo44daQI87NxdkwSE4_1yx5BiDBsa5QSeMU6bM&usqp=CAU" class="song-img">
+         <h1>Despacito</h1>
+
+         <p>Palak</p>
+
+         <audio Controls>
+            <source src="Snapchat-248086359.mp4">
+
+         </audio>
+
+         <input type="range" value="0"id="Progress">
+
+         <div class="Controls">
+            <div><i class="fa-solid fa-backward"></i></div>
+            <div onclick="playPause()"><i class="fa-solid fa-pause"></i></div>
+            <div><i class="fa-solid fa-forward"></i></div>
+
+         </div>
+         
+        </div>
+
+    </div>
+
+    <script>
+        let Progress = document.getElementById("Progress");
+        let song = document.getElementById("song");
+        let clrlIcon = document.getElementById("ctrlIcon");
+
+        song.onloadeddata = function(){
+            Progress.max = song.duration;
+            Progress.value = song.currentTime;
+        }
+
+        function playPause(){
+            if(ctrlIcon.classList("fa-pause")){
+                song.pause();
+                ctrlIcon.classList.remove("fa-pause");
+                
+                ctrlIcon.classList.add("fa-play");
+
+            }
+            else{
+                song.play();
+                ctrlIcon.classList.add("fa-pause");
+                
+                ctrlIcon.classList.remove("fa-play");
+            }
+
+        }
+
+        if(song.play()){
+            setInterval(()=>{
+                Progress.value = song.currentTime;
+            },500);
+        }
+
+        Progress.onchange = function(){
+            song.play();
+            song.currentTime = progress.value;
+            ctrlIcon.classList.remove("fa-pause");
+                
+                ctrlIcon.classList.add("fa-play");
+        }
+    </script>
+</body>
+</html>
